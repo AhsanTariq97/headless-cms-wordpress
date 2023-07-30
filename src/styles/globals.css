@@ -2,26 +2,36 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+html {
+  scroll-behavior: smooth !important;
+  -webkit-scroll-behavior: smooth !important;
+  -moz-scroll-behavior: smooth !important;
+  -ms-scroll-behavior: smooth !important;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+.shadow-navbar {
+  box-shadow: rgba(34, 39, 43, 0.06) 0px 36px 64px;
+}
+.shadow-button {
+  box-shadow: rgba(113, 135, 162, 0.14) 0px 24px 32px;
+}
+.slanted-cut {
+  clip-path: circle(40%);
+}
+
+@media screen and (min-width: 768px) {
+  .slanted-cut {
+    clip-path: polygon(50% 0, 100% 40%, 50% 100%, 0 40%);
+  }
+  .arrow {
+    animation-duration: 0.5s;
+    animation-timing-function: cubic-bezier(0.2, 0.8, 0.2, 1);
+    animation-iteration-count: infinite;
   }
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+@media screen and (min-width: 1280px) {
+  .fix-large-screen {
+    right: calc(50% - 458px);
+  }
 }
