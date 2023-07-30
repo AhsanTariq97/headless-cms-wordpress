@@ -25,11 +25,12 @@ const ImageLightbox = ({ imageUrl }: { imageUrl: any }) => {
   const imageRef = useRef(null);
 
   useOutsideAlerter(imageRef, isOpen, setIsOpen);
-
+  console.log("imageUrl", imageUrl);
   const onlyImage = imageUrl.replace(
     /<figcaption\b[^>]*>(.*?)<\/figcaption>/i,
     "",
   );
+  console.log("onlyImage", onlyImage);
 
   return (
     <>

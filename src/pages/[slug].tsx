@@ -6,40 +6,12 @@ import Image from "next/image";
 import { useState, useEffect } from "react";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
-import BlogPage from "./components/BlogPage";
+// import BlogPage from "./components/BlogPage";
+import BlogContent from "./components/BlogContent";
+import { readTime } from "./utils/readTime";
+import BlogPage1 from "./components/BlogPage1";
 
-interface Props {
-  post: any;
-}
-
-export default function Blogs({ post }: Props): JSX.Element {
-  // Adding id attribute to all the h tags in the content
-  let sectionIndex = 0;
-  const processedContent = post.content?.replace(
-    /<(h[1-6])/g,
-    (_: any, p1: any) => {
-      sectionIndex++;
-      return `<${p1} id="section${sectionIndex}" class="before:block before:h-[100px] before:-mt-[100px]"`;
-    },
-  );
-
-  // To determine how long it will take to read the post. General speed is 200 words per minute. Change 200 to something else to change the rate.
-  const minRead = (content: string) => {
-    const words = content.split(" ");
-    const minutesToRead = Math.ceil(words.length / 200);
-    return minutesToRead;
-  };
-
-  // Creating an array of headings from the content, so we can display them in the sidebar
-  const [headings, setHeadings] = useState<Element[]>([]);
-  useEffect(() => {
-    const content = processedContent;
-    const parser = new DOMParser();
-    const parsedContent = parser.parseFromString(content, "text/html");
-    const headings = parsedContent.querySelectorAll("h1, h2, h3, h4, h5, h6");
-    setHeadings(Array.from(headings));
-  }, [processedContent]);
-
+export default function Blogs({ post }: any) {
   return (
     <>
       <Head>
@@ -52,32 +24,7 @@ export default function Blogs({ post }: Props): JSX.Element {
           <Navbar />
         </header>
         <main className="max-w-screen-xl mx-auto">
-          <div className="flex flex-col items-start justify-between px-6 pb-16 space-y-16 md:px-8">
-            <Image
-              data-aos="fade-up"
-              className="rounded-3xl self-center md:h-[80vh]"
-              src={
-                post.featuredImage
-                  ? post.featuredImage.node.sourceUrl
-                  : "/assets/welcome.jpg"
-              }
-              width={800}
-              height={500}
-              alt=""
-            />
-            <h1
-              data-aos="fade-up"
-              className="w-full text-4xl font-bold text-left"
-            >
-              {post.title}
-            </h1>
-            <div className="flex items-center justify-start space-x-16">
-              <h3 className="text-lg font-medium">{post.author.node.name}</h3>
-              {post.content && <p>{`${minRead(processedContent)} min read`}</p>}
-            </div>
-            <BlogPage headings={headings} processedContent={processedContent} />
-            <Link href="/blog">&larr; Back to Blog</Link>
-          </div>
+          <BlogPage1 post={post} />
         </main>
         <footer className="w-full">
           <Footer />
@@ -140,5 +87,6 @@ export async function getStaticProps({ params }: any) {
     props: {
       post: result.data.postBy,
     },
+    revalidate: 10,
   };
 }

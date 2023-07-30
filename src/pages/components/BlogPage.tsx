@@ -4,9 +4,6 @@ import { useForm } from "react-hook-form";
 import validator from "validator";
 import Link from "next/link";
 
-import AOS from "aos";
-import "aos/dist/aos.css";
-
 import CopyCode from "./constants/CopyCode";
 import ReadingProgress from "./constants/ReadingProgress";
 import ImageLightbox from "./constants/ImageLightbox";
@@ -24,10 +21,6 @@ type Props = {
 };
 
 const BlogPage: React.FC<Props> = ({ headings, processedContent }) => {
-  useEffect(() => {
-    AOS.init();
-  }, []);
-
   const {
     register,
     handleSubmit,
