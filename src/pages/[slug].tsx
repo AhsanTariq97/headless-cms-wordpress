@@ -1,14 +1,9 @@
 import { client } from "./_app";
 import { gql } from "@apollo/client";
-import Link from "next/link";
 import Head from "next/head";
-import Image from "next/image";
-import { useState, useEffect } from "react";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 // import BlogPage from "./components/BlogPage";
-import BlogContent from "./components/BlogContent";
-import { readTime } from "./utils/readTime";
 import BlogPage1 from "./components/BlogPage1";
 
 export default function Blogs({ post }: any) {

@@ -5,6 +5,7 @@ import Button from "./constants/Button";
 import { useRouter } from "next/router";
 import { FaBars } from "react-icons/fa6";
 import { MdClose } from "react-icons/md";
+import DarkModeBtn from "./constants/DarkModeBtn";
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -38,7 +39,7 @@ const Navbar = () => {
   return (
     <>
       <header
-        className={`fixed top-0 z-[1] w-full bg-white ${
+        className={`fixed top-0 z-[1] w-full bg-white dark:bg-dark text-black dark:text-white ${
           scrolled
             ? "shadow-navbar transition-shadow duration-200 ease-in-out"
             : ""
@@ -61,68 +62,29 @@ const Navbar = () => {
                 "hidden lg:flex flex-row justify-center items-center space-x-8"
               }
             >
-              <li className="py-2 tracking-wide ">
-                <Link href="/">
-                  <p className="text-base font-normal tracking-wide">Home</p>
-                </Link>
-              </li>
-              <li className="py-2 tracking-wide ">
-                <Link
-                  href=""
-                  onClick={(event) => {
-                    event.preventDefault();
-                    smoothScrollTo("services");
-                  }}
-                >
-                  <p className="text-base font-normal tracking-wide">
-                    Services
-                  </p>
-                </Link>
-              </li>
-              <li className="py-2 tracking-wide ">
-                <Link
-                  href=""
-                  onClick={(event) => {
-                    event.preventDefault();
-                    smoothScrollTo("about");
-                  }}
-                >
-                  <p className="text-base font-normal tracking-wide">About</p>
-                </Link>
-              </li>
-              <li className="py-2 tracking-wide ">
-                <Link
-                  href=""
-                  onClick={(event) => {
-                    event.preventDefault();
-                    smoothScrollTo("team");
-                  }}
-                >
-                  <p className="text-base font-normal tracking-wide">Team</p>
-                </Link>
-              </li>
-              <li className="py-2 tracking-wide ">
-                <Link
-                  href=""
-                  onClick={(event) => {
-                    event.preventDefault();
-                    smoothScrollTo("contact");
-                  }}
-                >
-                  <p className="text-base font-normal tracking-wide">Contact</p>
-                </Link>
-              </li>
-              <li className="py-2 tracking-wide ">
-                <Link href="/blog">
-                  <p className="text-base font-normal tracking-wide">Blog</p>
-                </Link>
-              </li>
+              {navItems.map((item) => (
+                <li className="py-2 tracking-wide ">
+                  <Link
+                    href={item.href}
+                    onClick={(event) => {
+                      event.preventDefault();
+                      smoothScrollTo(item.id);
+                    }}
+                  >
+                    <p className="text-base font-normal tracking-wide">
+                      {item.text}
+                    </p>
+                  </Link>
+                </li>
+              ))}
             </ul>
             <div className="hidden lg:flex justify-between items-center space-x-2">
               <Link href="/portfolio">
                 <Button type="text" text="Portfolio" px="8" />
               </Link>
+              <DarkModeBtn />
             </div>
+
             <div className="flex lg:hidden justify-end items-center">
               <FaBars
                 size={25}
@@ -142,75 +104,27 @@ const Navbar = () => {
                       </p>
                     </Link>
                   </li>
-                  <li className="px-4 py-2 tracking-wide">
-                    <Link
-                      href=""
-                      onClick={(event) => {
-                        event.preventDefault();
-                        smoothScrollTo("services");
-                        setToggle((prev) => !prev);
-                      }}
-                    >
-                      <p className="text-base font-normal tracking-wide">
-                        Services
-                      </p>
-                    </Link>
-                  </li>
-                  <li className="px-4 py-2 tracking-wide">
-                    <Link
-                      href=""
-                      onClick={(event) => {
-                        event.preventDefault();
-                        smoothScrollTo("about");
-                        setToggle((prev) => !prev);
-                      }}
-                    >
-                      <p className="text-base font-normal tracking-wide">
-                        About
-                      </p>
-                    </Link>
-                  </li>
-                  <li className="px-4 py-2 tracking-wide">
-                    <Link
-                      href=""
-                      onClick={(event) => {
-                        event.preventDefault();
-                        smoothScrollTo("team");
-                        setToggle((prev) => !prev);
-                      }}
-                    >
-                      <p className="text-base font-normal tracking-wide">
-                        Team
-                      </p>
-                    </Link>
-                  </li>
-                  <li className="px-4 py-2 tracking-wide">
-                    <Link
-                      href=""
-                      onClick={(event) => {
-                        event.preventDefault();
-                        smoothScrollTo("contact");
-                        setToggle((prev) => !prev);
-                      }}
-                    >
-                      <p className="text-base font-normal tracking-wide">
-                        Contact
-                      </p>
-                    </Link>
-                  </li>
-                  <li className="px-4 py-2 tracking-wide">
-                    <Link href="/blog">
-                      <p className="text-base font-normal tracking-wide">
-                        Blog
-                      </p>
-                    </Link>
-                  </li>
+                  {navItems.map((item) => (
+                    <li className="px-4 py-2 tracking-wide">
+                      <Link
+                        href={item.href}
+                        onClick={(event) => {
+                          event.preventDefault();
+                          smoothScrollTo(item.id);
+                          setToggle((prev) => !prev);
+                        }}
+                      >
+                        <p className="text-base font-normal tracking-wide">
+                          {item.text}
+                        </p>
+                      </Link>
+                    </li>
+                  ))}
                   <div className="flex flex-col justify-between space-y-4">
                     <Link href="/portfolio">
                       <Button type="text" text="Portfolio" />
                     </Link>
                   </div>
-
                   <MdClose
                     size={25}
                     className="absolute cursor-pointer top-3 right-8"
@@ -228,3 +142,31 @@ const Navbar = () => {
 };
 
 export default Navbar;
+
+const navItems = [
+  {
+    href: "/",
+    id: "",
+    text: "Home",
+  },
+  {
+    href: "",
+    id: "services",
+    text: "Services",
+  },
+  {
+    href: "",
+    id: "about",
+    text: "About",
+  },
+  {
+    href: "",
+    id: "team",
+    text: "Team",
+  },
+  {
+    href: "",
+    id: "contact",
+    text: "Contact",
+  },
+];

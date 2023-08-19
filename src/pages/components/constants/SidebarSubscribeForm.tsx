@@ -50,7 +50,7 @@ const SidebarSubscribeForm = () => {
         <p className="py-1 text-red-600">{errors.email?.message}</p>
         <button
           type="submit"
-          className="text-[#7187A2] border border-[#7187A2] px-4 py-2 rounded-full cursor-pointer hover:bg-[#010661] hover:text-white hover:border-[#010661]"
+          className="text-[#7187A2] dark:text-gray-400 border border-[#7187A2] dark:border-gray-400 px-4 py-2 rounded-full cursor-pointer hover:bg-[#010661] dark:hover:bg-dark hover:text-white dark:hover:text-gray-200 hover:border-[#010661] dark:hover:border-gray-200"
         >
           Submit
         </button>

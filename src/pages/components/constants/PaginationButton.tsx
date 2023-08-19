@@ -16,7 +16,7 @@ const PaginationButton: React.FC<PaginationButtonProps> = ({
       <button
         className={`${
           activeIndex === index
-            ? "bg-[#3e536e] text-white"
+            ? "bg-[#3e536e] dark:bg-gray-200 text-white dark:text-black"
             : "border border-gray-300"
         } w-[45px] h-[45px] rounded-full shadow-xl`}
         key={index}

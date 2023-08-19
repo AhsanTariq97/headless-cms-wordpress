@@ -1,5 +1,6 @@
 import "@/styles/globals.css";
 import type { AppProps } from "next/app";
+import { ThemeProvider } from "next-themes";
 
 import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client";
 import AppContextProvider from "./utils/AppContext";
@@ -12,9 +13,11 @@ export const client = new ApolloClient({
 export default function App({ Component, pageProps }: AppProps) {
   return (
     <ApolloProvider client={client}>
-      <AppContextProvider>
-        <Component {...pageProps} />
-      </AppContextProvider>
+      <ThemeProvider attribute="class">
+        <AppContextProvider>
+          <Component {...pageProps} />
+        </AppContextProvider>
+      </ThemeProvider>
     </ApolloProvider>
   );
 }

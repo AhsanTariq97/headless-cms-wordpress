@@ -35,7 +35,7 @@ const ReadingProgress = ({
 
   return (
     <div
-      className={`fixed z-[100] h-1 top-0 left-0 bg-[#473743]`}
+      className={`fixed z-[100] h-1 top-0 left-0 bg-[#473743] dark:bg-slate-300`}
       style={{ width: `${readingProgress}%` }}
     />
   );

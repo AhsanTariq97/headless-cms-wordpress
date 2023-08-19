@@ -41,13 +41,13 @@ const BlogListItem = ({ post }: { post: Post }) => {
       </Link>
       <div className="flex flex-col items-start justify-between py-4 space-y-4 w-full">
         <Link href={`/${slug}`} onClick={handleClick}>
-          <h2 className="text-lg font-semibold text-[#1F3A6E] md:text-lg">
+          <h2 className="text-lg font-semibold text-[#1F3A6E] dark:text-white md:text-lg">
             {title}
           </h2>
         </Link>
         <div
           dangerouslySetInnerHTML={{ __html: newExcerpt }}
-          className="text-[#6E7477] text-sm"
+          className="text-[#6E7477] dark:text-gray-400 text-sm"
         />
         <div className="flex items-center justify-between w-full">
           <h3 className="text-sm font-medium">{author.node.name}</h3>

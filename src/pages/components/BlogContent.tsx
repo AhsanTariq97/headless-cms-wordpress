@@ -130,7 +130,7 @@ const BlogContent: React.FC<Props> = ({ headings, processedContent }) => {
           <div ref={myContentRef} className={`w-full text-left`}>
             <div
               ref={progressBarRef}
-              className="min-w-full prose lg:prose-lg prose-a:text-blue-400 hover:prose-a:text-blue-600 prose-a:no-underline prose-headings:underline prose-figcaption:text-center prose-img:rounded-2xl"
+              className="min-w-full prose text-black dark:text-white dark:prose-headings:text-white lg:prose-lg prose-a:text-blue-400 hover:prose-a:text-blue-600 prose-a:no-underline prose-headings:underline prose-figcaption:text-center prose-img:rounded-2xl"
             >
               {renderContent()}
             </div>
