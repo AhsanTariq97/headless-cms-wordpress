@@ -3,8 +3,9 @@ import BlogContent from "./BlogContent";
 import Link from "next/link";
 import { readTime } from "../utils/readTime";
 import { useEffect, useState } from "react";
+import { Post } from "./BlogHomepage";
 
-const BlogPage1 = ({ post }: any) => {
+const BlogPage1 = ({ post }: { post: Post }) => {
   // Adding id attribute to all the h tags in the content
   let sectionIndex = 0;
   const processedContent = post.content?.replace(

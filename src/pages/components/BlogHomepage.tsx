@@ -50,9 +50,9 @@ const BlogHomepage = ({ posts }: any) => {
     notifyOnNetworkStatusChange: true,
   });
 
-  let postsData;
-  postsData = data?.posts.edges.map((edge: any) => edge.node);
-  // postsData = posts;
+  // let postsData: Post[];
+  // const postsData = posts
+  const postsData: Post[] = data?.posts.edges.map((edge: Edge) => edge.node);
   const totalPosts = data?.posts.pageInfo.offsetPagination.total || 0;
   const noOfPages = Math.ceil(totalPosts / BATCH_SIZE);
 
@@ -76,7 +76,7 @@ const BlogHomepage = ({ posts }: any) => {
         Blogs
       </h2>
       <ul className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
-        {postsData?.map((post: any) => <BlogListItem post={post} />)}
+        {postsData?.map((post: Post) => <BlogListItem post={post} />)}
       </ul>
       <Pagination fetchMore={fetchMore} noOfPages={noOfPages} />
     </div>
@@ -136,6 +136,10 @@ export interface Post {
       name: string;
     };
   };
+}
+
+interface Edge {
+  node: Post;
 }
 
 interface PageInfo {

@@ -22,7 +22,7 @@ const raleway = Raleway({
   variable: "--font-raleway",
 });
 
-export default function Home({ posts }: any) {
+export default function Home({ posts }: { posts: Post[] }) {
   const staticPosts = posts;
   return (
     <main
@@ -45,7 +45,7 @@ export async function getStaticProps() {
     notifyOnNetworkStatusChange: true,
   });
 
-  const posts = data.posts.edges.map((edge: any) => edge.node);
+  const posts = data.posts.edges.map((edge: Edge) => edge.node);
 
   return {
     props: {
@@ -79,3 +79,24 @@ const GET_POSTS = gql`
     }
   }
 `;
+
+export interface Post {
+  content: string;
+  excerpt: string;
+  slug: string;
+  title: string;
+  featuredImage: {
+    node: {
+      sourceUrl: string;
+    };
+  };
+  author: {
+    node: {
+      name: string;
+    };
+  };
+}
+
+interface Edge {
+  node: Post;
+}

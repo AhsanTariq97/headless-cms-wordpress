@@ -5,8 +5,9 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 // import BlogPage from "./components/BlogPage";
 import BlogPage1 from "./components/BlogPage1";
+import { Post } from "./components/BlogHomepage";
 
-export default function Blogs({ post }: any) {
+export default function Blogs({ post }: { post: Post }) {
   return (
     <>
       <Head>
@@ -43,7 +44,7 @@ export async function getStaticPaths() {
   });
 
   return {
-    paths: result.data.posts.nodes.map(({ slug }: any) => {
+    paths: result.data.posts.nodes.map(({ slug }: { slug: string }) => {
       return {
         params: { slug },
       };
@@ -52,7 +53,7 @@ export async function getStaticPaths() {
   };
 }
 
-export async function getStaticProps({ params }: any) {
+export async function getStaticProps({ params }: { params: { slug: string } }) {
   const { slug } = params;
   const result = await client.query({
     query: gql`

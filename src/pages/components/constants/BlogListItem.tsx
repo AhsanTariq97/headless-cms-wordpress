@@ -4,6 +4,7 @@ import { Post } from "../BlogHomepage";
 import { useContext } from "react";
 import { AppContext } from "../../utils/AppContext";
 import { readTime } from "../../utils/readTime";
+import { truncateText } from "@/pages/utils/truncateText";
 
 const BlogListItem = ({ post }: { post: Post }) => {
   const { blogActiveIndex } = useContext(AppContext);
@@ -14,12 +15,6 @@ const BlogListItem = ({ post }: { post: Post }) => {
   const handleClick = () => {
     sessionStorage.setItem("blogActiveIndex", JSON.stringify(blogActiveIndex));
   };
-
-  // For lengthy excerpts, making it limit to 20 words only
-  let newExcerpt = excerpt;
-  if (excerpt.split(" ").length > 20) {
-    newExcerpt = excerpt.split(" ").slice(0, 20).join(" ").concat("...");
-  }
 
   return (
     <li
@@ -46,7 +41,9 @@ const BlogListItem = ({ post }: { post: Post }) => {
           </h2>
         </Link>
         <div
-          dangerouslySetInnerHTML={{ __html: newExcerpt }}
+          dangerouslySetInnerHTML={{
+            __html: truncateText(excerpt, 20) as string,
+          }}
           className="text-[#6E7477] dark:text-gray-400 text-sm"
         />
         <div className="flex items-center justify-between w-full">

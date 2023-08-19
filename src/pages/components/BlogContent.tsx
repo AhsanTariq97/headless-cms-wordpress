@@ -8,12 +8,12 @@ import TableOfContent from "./constants/TableOfContent";
 import SidebarSubscribeForm from "./constants/SidebarSubscribeForm";
 import SidebarShare from "./constants/SidebarShare";
 
-type Props = {
+type BlogContentProps = {
   headings: Element[];
   processedContent: any;
 };
 
-const BlogContent: React.FC<Props> = ({ headings, processedContent }) => {
+const BlogContent = ({ headings, processedContent }: BlogContentProps) => {
   // Making the sidebar fix at its position when scrolling the blog
   // We have the sidebar initially placed beside the content via flex
   // On scrolling down, when the top position of the blog content reaches 120px (navbar height) from the top of viewport, we fix the sidebar at that location (via fixSidebar state)
@@ -91,7 +91,6 @@ const BlogContent: React.FC<Props> = ({ headings, processedContent }) => {
             const figSections = section.split(
               /<figure class="wp-block-image[^>]*>(.*?)<\/figure>/s,
             );
-            console.log("figSections", figSections);
             return (
               <>
                 {figSections?.map((figSection: any, index: number) => {
