@@ -48,7 +48,7 @@ const BlogPage1 = ({ post }: { post: Post }) => {
         {post.content && <p>{`${readTime(processedContent)} min read`}</p>}
       </div>
       <BlogContent headings={headings} processedContent={processedContent} />
-      <Link href="/blog">&larr; Back to Blog</Link>
+      <Link href="/">&larr; Back to Blog</Link>
     </div>
   );
 };

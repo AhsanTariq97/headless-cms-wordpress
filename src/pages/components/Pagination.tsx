@@ -42,13 +42,13 @@ const Pagination = ({
   };
 
   return (
-    <div className="xs:space-x-2 xs:text-base flex items-center justify-between space-x-1 text-sm sm:text-lg md:space-x-4">
+    <div className="xs:space-x-2 xs:text-base flex items-center justify-between space-x-4 text-sm sm:text-lg">
       <button
         disabled={blogActiveIndex === 0}
         onClick={() => paginateFn("prev")}
         className={`${
           blogActiveIndex === 0 ? "cursor-default opacity-25" : ""
-        } h-[45px] w-[45px] rounded-full border border-gray-300 shadow-xl`}
+        } h-[35px] w-[35px] rounded-full border border-gray-300 shadow-xl md:h-[45px] md:w-[45px]`}
       >
         <IoIosArrowBack size={20} className="mx-auto" />
       </button>
@@ -57,6 +57,7 @@ const Pagination = ({
         if (noOfPages <= 5) {
           return (
             <PaginationButton
+              key={index}
               index={index}
               activeIndex={blogActiveIndex}
               paginateFn={paginateFn}
@@ -68,6 +69,7 @@ const Pagination = ({
             if (index < 3) {
               return (
                 <PaginationButton
+                  key={index}
                   index={index}
                   activeIndex={blogActiveIndex}
                   paginateFn={paginateFn}
@@ -79,6 +81,7 @@ const Pagination = ({
                 <>
                   <button className="cursor-default">...</button>
                   <PaginationButton
+                    key={index}
                     index={index}
                     activeIndex={blogActiveIndex}
                     paginateFn={paginateFn}
@@ -92,6 +95,7 @@ const Pagination = ({
               return (
                 <>
                   <PaginationButton
+                    key={index}
                     index={index}
                     activeIndex={blogActiveIndex}
                     paginateFn={paginateFn}
@@ -103,6 +107,7 @@ const Pagination = ({
             if (index > noOfPages - 1 - 3) {
               return (
                 <PaginationButton
+                  key={index}
                   index={index}
                   activeIndex={blogActiveIndex}
                   paginateFn={paginateFn}
@@ -115,6 +120,7 @@ const Pagination = ({
               return (
                 <>
                   <PaginationButton
+                    key={index}
                     index={index}
                     activeIndex={blogActiveIndex}
                     paginateFn={paginateFn}
@@ -135,6 +141,7 @@ const Pagination = ({
               ) {
                 return (
                   <PaginationButton
+                    key={index}
                     index={index}
                     activeIndex={blogActiveIndex}
                     paginateFn={paginateFn}
@@ -152,6 +159,7 @@ const Pagination = ({
                     <button className="cursor-default">...</button>
                   )}
                   <PaginationButton
+                    key={index}
                     index={index}
                     activeIndex={blogActiveIndex}
                     paginateFn={paginateFn}
@@ -167,7 +175,7 @@ const Pagination = ({
         onClick={() => paginateFn("next")}
         className={`${
           blogActiveIndex === noOfPages - 1 ? "cursor-default opacity-25" : ""
-        } h-[45px] w-[45px] rounded-full border border-gray-300 shadow-xl`}
+        } h-[35px] w-[35px] rounded-full border border-gray-300 shadow-xl md:h-[45px] md:w-[45px]`}
       >
         <IoIosArrowForward size={20} className="mx-auto" />
       </button>

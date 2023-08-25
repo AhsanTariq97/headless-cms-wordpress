@@ -51,7 +51,7 @@ const Footer: React.FC = () => {
             <Link href="/">
               <p className="w-full text-base tracking-wide">Home</p>
             </Link>
-            <Link href="/blog">
+            <Link href="/">
               <p className="w-full text-base tracking-wide">Blog</p>
             </Link>
             <Link

@@ -76,7 +76,9 @@ const BlogHomepage = ({ posts }: any) => {
         Blogs
       </h2>
       <ul className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
-        {postsData?.map((post: Post) => <BlogListItem post={post} />)}
+        {postsData?.map((post: Post) => (
+          <BlogListItem post={post} key={post.slug} />
+        ))}
       </ul>
       <Pagination fetchMore={fetchMore} noOfPages={noOfPages} />
     </div>

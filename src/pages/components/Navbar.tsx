@@ -62,8 +62,8 @@ const Navbar = () => {
                 "hidden flex-row items-center justify-center space-x-8 lg:flex"
               }
             >
-              {navItems.map((item) => (
-                <li className="py-2 tracking-wide ">
+              {navItems.map((item, index) => (
+                <li className="py-2 tracking-wide" key={index}>
                   <Link
                     href={item.href}
                     onClick={(event) => {
@@ -80,7 +80,9 @@ const Navbar = () => {
             </ul>
             <div className="hidden items-center justify-between space-x-2 lg:flex">
               <Link href="/portfolio">
-                <Button type="text" text="Portfolio" px="8" />
+                <Button type="text" className="px-8">
+                  Portfolio
+                </Button>
               </Link>
               <DarkModeBtn />
             </div>
@@ -91,12 +93,13 @@ const Navbar = () => {
                 className="cursor-pointer"
                 onClick={() => setToggle((prev) => !prev)}
               />
+              <DarkModeBtn />
               <div
                 className={`${
                   toggle ? "flex" : "hidden"
-                } absolute left-0 top-0 h-screen w-full rounded-lg bg-white text-center`}
+                } absolute left-0 top-0 h-screen w-full rounded-lg bg-white text-center dark:bg-dark `}
               >
-                <ul className="flex h-full w-full flex-col items-center justify-center space-y-8 text-black">
+                <ul className="flex h-full w-full flex-col items-center justify-center space-y-8 text-black dark:text-white">
                   <li className="px-4 py-2 tracking-wide">
                     <Link onClick={() => setToggle((prev) => !prev)} href="/">
                       <p className="text-base font-normal tracking-wide">
@@ -104,8 +107,8 @@ const Navbar = () => {
                       </p>
                     </Link>
                   </li>
-                  {navItems.map((item) => (
-                    <li className="px-4 py-2 tracking-wide">
+                  {navItems.map((item, index) => (
+                    <li className="px-4 py-2 tracking-wide" key={index}>
                       <Link
                         href={item.href}
                         onClick={(event) => {
@@ -120,11 +123,13 @@ const Navbar = () => {
                       </Link>
                     </li>
                   ))}
-                  <div className="flex flex-col justify-between space-y-4">
-                    <Link href="/portfolio">
-                      <Button type="text" text="Portfolio" />
+                  <li className="w-96 px-4 py-2 tracking-wide">
+                    <Link href="/portfolio" className="block">
+                      <Button type="text" className="w-32">
+                        Portfolio
+                      </Button>
                     </Link>
-                  </div>
+                  </li>
                   <MdClose
                     size={25}
                     className="absolute right-8 top-3 cursor-pointer"
