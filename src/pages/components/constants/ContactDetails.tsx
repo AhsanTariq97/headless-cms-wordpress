@@ -13,24 +13,24 @@ const ContactDetails: React.FC<ContactDetailsProps> = ({
 }) => {
   return (
     <div
-      className={`flex flex-col justify-between items-center space-y-4 lg:items-start ${textColor}`}
+      className={`flex flex-col items-center justify-between space-y-4 lg:items-start ${textColor}`}
     >
-      <div className="flex justify-between items-start">
+      <div className="flex items-start justify-between">
         <MdLocationPin className="min-w-[25px]" size={25} color={iconColor} />
-        <p className="text-sm font-normal text-center lg:text-left tracking-wide pl-2">
+        <p className="pl-2 text-center text-sm font-normal tracking-wide lg:text-left">
           F18, E-8 markaz, Haidari Chowk, <br />
           Block E Satellite Town, Rawalpindi, Pakistan
         </p>
       </div>
-      <div className="flex justify-between items-start">
+      <div className="flex items-start justify-between">
         <MdPhone size={25} color={iconColor} />
-        <p className="text-sm font-normal tracking-wide pl-2">
+        <p className="pl-2 text-sm font-normal tracking-wide">
           +92-333-6664423
         </p>
       </div>
-      <div className="flex justify-between items-start">
+      <div className="flex items-start justify-between">
         <RiSendPlaneFill size={25} color={iconColor} />
-        <p className="text-sm font-normal tracking-wide pl-2">
+        <p className="pl-2 text-sm font-normal tracking-wide">
           info@atrialogics.io
         </p>
       </div>

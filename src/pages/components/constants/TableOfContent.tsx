@@ -12,8 +12,8 @@ const TableOfContent = ({ headings }: { headings: any }) => {
   };
 
   return (
-    <div className="border border-[#c7c7c7] rounded-3xl px-4 py-2 w-full ">
-      <div className="flex flex-col py-2 space-y-4">
+    <div className="w-full rounded-3xl border border-[#c7c7c7] px-4 py-2 ">
+      <div className="flex flex-col space-y-4 py-2">
         <h3 className="text-lg font-bold">Table of Contents</h3>
         <div className="flex flex-col space-y-2">
           {Array.from(headings).map((heading: any, index) => (

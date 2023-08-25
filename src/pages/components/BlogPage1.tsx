@@ -27,10 +27,10 @@ const BlogPage1 = ({ post }: { post: Post }) => {
   }, [processedContent]);
 
   return (
-    <div className="flex flex-col items-start justify-between px-6 pb-16 space-y-16 md:px-8">
+    <div className="flex flex-col items-start justify-between space-y-16 px-6 pb-16 md:px-8">
       <Image
         data-aos="fade-up"
-        className="rounded-3xl self-center md:h-[80vh]"
+        className="self-center rounded-3xl md:h-[80vh]"
         src={
           post.featuredImage
             ? post.featuredImage.node.sourceUrl
@@ -40,7 +40,7 @@ const BlogPage1 = ({ post }: { post: Post }) => {
         height={500}
         alt=""
       />
-      <h1 data-aos="fade-up" className="w-full text-4xl font-bold text-left">
+      <h1 data-aos="fade-up" className="w-full text-left text-4xl font-bold">
         {post.title}
       </h1>
       <div className="flex items-center justify-start space-x-16">

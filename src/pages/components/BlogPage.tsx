@@ -172,7 +172,7 @@ const BlogPage: React.FC<Props> = ({ headings, processedContent }) => {
           >
             <div
               ref={progressBarRef}
-              className="min-w-full prose lg:prose-lg prose-a:text-blue-400 hover:prose-a:text-blue-600 prose-a:no-underline prose-headings:underline prose-figcaption:text-center prose-img:rounded-2xl"
+              className="prose min-w-full lg:prose-lg prose-headings:underline prose-a:text-blue-400 prose-a:no-underline hover:prose-a:text-blue-600 prose-figcaption:text-center prose-img:rounded-2xl"
             >
               {renderContent()}
             </div>
@@ -181,10 +181,10 @@ const BlogPage: React.FC<Props> = ({ headings, processedContent }) => {
 
           <div
             ref={mySidebarRef}
-            className={`p-2 pl-8 hidden md:flex flex-col justify-between items-start space-y-8
+            className={`hidden flex-col items-start justify-between space-y-8 p-2 pl-8 md:flex
                     ${
                       fixSidebarTop && !fixSidebarBottom
-                        ? "fix-large-screen fixed top-[120px] right-8 xl:transform xl:translate-x-1/2 min-w-[300px] max-w-[300px]"
+                        ? "fix-large-screen fixed right-8 top-[120px] min-w-[300px] max-w-[300px] xl:translate-x-1/2 xl:transform"
                         : "min-w-[300px] max-w-[300px]"
                     }
                     ${
@@ -194,8 +194,8 @@ const BlogPage: React.FC<Props> = ({ headings, processedContent }) => {
                     }`}
           >
             {headings.length > 0 && (
-              <div className="border border-[#c7c7c7] rounded-3xl px-4 py-2 w-full ">
-                <div className="flex flex-col py-2 space-y-4">
+              <div className="w-full rounded-3xl border border-[#c7c7c7] px-4 py-2 ">
+                <div className="flex flex-col space-y-4 py-2">
                   <h3 className="text-lg font-bold">Table of Contents</h3>
                   <div className="flex flex-col space-y-2">
                     {Array.from(headings).map((heading, index) => (
@@ -216,12 +216,12 @@ const BlogPage: React.FC<Props> = ({ headings, processedContent }) => {
               </div>
             )}
 
-            <div className="flex flex-col items-start justify-between space-y-4 w-full rounded-lg p-4 border border-[#c7c7c7]">
+            <div className="flex w-full flex-col items-start justify-between space-y-4 rounded-lg border border-[#c7c7c7] p-4">
               <h3 className="text-base font-bold leading-tight">
                 Want to stay on top of all tips and news from Atrialogics?
               </h3>
               <form
-                className="flex flex-col items-start justify-between w-full space-y-2 text-xs"
+                className="flex w-full flex-col items-start justify-between space-y-2 text-xs"
                 // ref={form}
                 onSubmit={handleSubmit((data) => {
                   console.log(data);
@@ -235,7 +235,7 @@ const BlogPage: React.FC<Props> = ({ headings, processedContent }) => {
                   placeholder="example@email.com"
                   className={`${
                     errors.email ? "border-red-600" : "border-[#7187A2]"
-                  } w-full border p-2 rounded-xl outline-none shadow-lg`}
+                  } w-full rounded-xl border p-2 shadow-lg outline-none`}
                   {...register("email", {
                     required: "Required",
                     validate: validateEmail,
@@ -244,18 +244,18 @@ const BlogPage: React.FC<Props> = ({ headings, processedContent }) => {
                 <p className="py-1 text-red-600">{errors.email?.message}</p>
                 <button
                   type="submit"
-                  className="text-[#7187A2] border border-[#7187A2] px-4 py-2 rounded-full cursor-pointer hover:bg-[#010661] hover:text-white hover:border-[#010661]"
+                  className="cursor-pointer rounded-full border border-[#7187A2] px-4 py-2 text-[#7187A2] hover:border-[#010661] hover:bg-[#010661] hover:text-white"
                 >
                   Submit
                 </button>
               </form>
             </div>
 
-            <div className="flex flex-col items-start justify-between space-y-4 w-full rounded-lg p-4 border border-[#c7c7c7]">
+            <div className="flex w-full flex-col items-start justify-between space-y-4 rounded-lg border border-[#c7c7c7] p-4">
               <h2 className="text-lg font-bold leading-tight">
                 Share this article
               </h2>
-              <div className="flex items-center justify-between w-full">
+              <div className="flex w-full items-center justify-between">
                 <BiLink
                   size={40}
                   className="text-[#7187A2] hover:text-[#010661]"

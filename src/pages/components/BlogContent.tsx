@@ -129,7 +129,7 @@ const BlogContent = ({ headings, processedContent }: BlogContentProps) => {
           <div ref={myContentRef} className={`w-full text-left`}>
             <div
               ref={progressBarRef}
-              className="min-w-full prose text-black dark:text-white dark:prose-headings:text-white lg:prose-lg prose-a:text-blue-400 hover:prose-a:text-blue-600 prose-a:no-underline prose-headings:underline prose-figcaption:text-center prose-img:rounded-2xl"
+              className="prose min-w-full text-black lg:prose-lg prose-headings:underline prose-a:text-blue-400 prose-a:no-underline hover:prose-a:text-blue-600 prose-figcaption:text-center prose-img:rounded-2xl dark:text-white dark:prose-headings:text-white"
             >
               {renderContent()}
             </div>
@@ -138,7 +138,7 @@ const BlogContent = ({ headings, processedContent }: BlogContentProps) => {
 
           <div
             ref={mySidebarRef}
-            className={` p-2 pl-8 hidden md:flex flex-col justify-between items-start space-y-8`}
+            className={`hidden flex-col items-start justify-between space-y-8 p-2 pl-8 md:flex`}
           >
             {headings.length > 0 && <TableOfContent headings={headings} />}
             <SidebarSubscribeForm />

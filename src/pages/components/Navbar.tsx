@@ -39,13 +39,13 @@ const Navbar = () => {
   return (
     <>
       <header
-        className={`fixed top-0 z-[1] w-full bg-white dark:bg-dark text-black dark:text-white ${
+        className={`fixed top-0 z-[1] w-full bg-white text-black dark:bg-dark dark:text-white ${
           scrolled
             ? "shadow-navbar transition-shadow duration-200 ease-in-out"
             : ""
         }`}
       >
-        <nav className="relative w-full mx-auto max-w-screen-xl h-[100px] pt-4">
+        <nav className="relative mx-auto h-[100px] w-full max-w-screen-xl pt-4">
           <div className="flex flex-row items-center justify-between px-8">
             <div className="mb-6 min-w-[200px]">
               <Link href="/">
@@ -59,7 +59,7 @@ const Navbar = () => {
             </div>
             <ul
               className={
-                "hidden lg:flex flex-row justify-center items-center space-x-8"
+                "hidden flex-row items-center justify-center space-x-8 lg:flex"
               }
             >
               {navItems.map((item) => (
@@ -78,14 +78,14 @@ const Navbar = () => {
                 </li>
               ))}
             </ul>
-            <div className="hidden lg:flex justify-between items-center space-x-2">
+            <div className="hidden items-center justify-between space-x-2 lg:flex">
               <Link href="/portfolio">
                 <Button type="text" text="Portfolio" px="8" />
               </Link>
               <DarkModeBtn />
             </div>
 
-            <div className="flex lg:hidden justify-end items-center">
+            <div className="flex items-center justify-end lg:hidden">
               <FaBars
                 size={25}
                 className="cursor-pointer"
@@ -94,9 +94,9 @@ const Navbar = () => {
               <div
                 className={`${
                   toggle ? "flex" : "hidden"
-                } absolute top-0 left-0 bg-white w-full h-screen text-center rounded-lg`}
+                } absolute left-0 top-0 h-screen w-full rounded-lg bg-white text-center`}
               >
-                <ul className="flex flex-col items-center justify-center w-full h-full space-y-8 text-black">
+                <ul className="flex h-full w-full flex-col items-center justify-center space-y-8 text-black">
                   <li className="px-4 py-2 tracking-wide">
                     <Link onClick={() => setToggle((prev) => !prev)} href="/">
                       <p className="text-base font-normal tracking-wide">
@@ -127,7 +127,7 @@ const Navbar = () => {
                   </div>
                   <MdClose
                     size={25}
-                    className="absolute cursor-pointer top-3 right-8"
+                    className="absolute right-8 top-3 cursor-pointer"
                     onClick={() => setToggle((prev) => !prev)}
                   />
                 </ul>

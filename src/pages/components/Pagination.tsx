@@ -42,13 +42,13 @@ const Pagination = ({
   };
 
   return (
-    <div className="flex items-center justify-between space-x-1 text-sm xs:space-x-2 md:space-x-4 xs:text-base sm:text-lg">
+    <div className="xs:space-x-2 xs:text-base flex items-center justify-between space-x-1 text-sm sm:text-lg md:space-x-4">
       <button
         disabled={blogActiveIndex === 0}
         onClick={() => paginateFn("prev")}
         className={`${
           blogActiveIndex === 0 ? "cursor-default opacity-25" : ""
-        } w-[45px] h-[45px] border border-gray-300 rounded-full shadow-xl`}
+        } h-[45px] w-[45px] rounded-full border border-gray-300 shadow-xl`}
       >
         <IoIosArrowBack size={20} className="mx-auto" />
       </button>
@@ -167,7 +167,7 @@ const Pagination = ({
         onClick={() => paginateFn("next")}
         className={`${
           blogActiveIndex === noOfPages - 1 ? "cursor-default opacity-25" : ""
-        } w-[45px] h-[45px] border border-gray-300 rounded-full shadow-xl`}
+        } h-[45px] w-[45px] rounded-full border border-gray-300 shadow-xl`}
       >
         <IoIosArrowForward size={20} className="mx-auto" />
       </button>

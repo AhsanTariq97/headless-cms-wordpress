@@ -38,13 +38,13 @@ const ImageLightbox = ({ imageUrl }: { imageUrl: any }) => {
         <div dangerouslySetInnerHTML={{ __html: imageUrl }} />
       </figure>
       {isOpen && (
-        <div className="fixed top-0 left-0 z-50 flex items-center justify-center w-full h-full bg-black/90">
+        <div className="fixed left-0 top-0 z-50 flex h-full w-full items-center justify-center bg-black/90">
           <div
             ref={imageRef}
-            className="relative max-w-[90%] max-h-[90%] overflow-hidden bg-transparent rounded-xl"
+            className="relative max-h-[90%] max-w-[90%] overflow-hidden rounded-xl bg-transparent"
           >
             <div
-              className={`max-w-full max-h-full cursor-zoom-in ${
+              className={`max-h-full max-w-full cursor-zoom-in ${
                 isZoom && "scale-150 cursor-zoom-out"
               }`}
               dangerouslySetInnerHTML={{ __html: onlyImage }}
@@ -53,7 +53,7 @@ const ImageLightbox = ({ imageUrl }: { imageUrl: any }) => {
           </div>
           <button
             onClick={() => setIsOpen(false)}
-            className="fixed top-4 right-4"
+            className="fixed right-4 top-4"
           >
             <IoClose size={35} className="text-white/80" />
           </button>

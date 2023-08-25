@@ -68,10 +68,10 @@ const BlogHomepage = ({ posts }: any) => {
   }
 
   return (
-    <div className="flex flex-col justify-between items-center space-y-8 py-8 w-[90%] mx-auto">
+    <div className="mx-auto flex w-[90%] flex-col items-center justify-between space-y-8 py-8">
       <h2
         data-aos="fade-down"
-        className="text-2xl font-bold md:text-3xl py-4 [text-shadow:_0_10px_20px_rgb(0_0_0_/_20%)]"
+        className="py-4 text-2xl font-bold [text-shadow:_0_10px_20px_rgb(0_0_0_/_20%)] md:text-3xl"
       >
         Blogs
       </h2>

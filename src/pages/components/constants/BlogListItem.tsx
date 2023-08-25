@@ -19,7 +19,7 @@ const BlogListItem = ({ post }: { post: Post }) => {
   return (
     <li
       key={slug}
-      className="flex flex-col items-start justify-start w-full max-w-xl"
+      className="flex w-full max-w-xl flex-col items-start justify-start"
     >
       <Link href={`/${slug}`} onClick={handleClick}>
         <Image
@@ -34,7 +34,7 @@ const BlogListItem = ({ post }: { post: Post }) => {
           height={200}
         />
       </Link>
-      <div className="flex flex-col items-start justify-between py-4 space-y-4 w-full">
+      <div className="flex w-full flex-col items-start justify-between space-y-4 py-4">
         <Link href={`/${slug}`} onClick={handleClick}>
           <h2 className="text-lg font-semibold text-[#1F3A6E] dark:text-white md:text-lg">
             {title}
@@ -44,9 +44,9 @@ const BlogListItem = ({ post }: { post: Post }) => {
           dangerouslySetInnerHTML={{
             __html: truncateText(excerpt, 20) as string,
           }}
-          className="text-[#6E7477] dark:text-gray-400 text-sm"
+          className="text-sm text-[#6E7477] dark:text-gray-400"
         />
-        <div className="flex items-center justify-between w-full">
+        <div className="flex w-full items-center justify-between">
           <h3 className="text-sm font-medium">{author.node.name}</h3>
           {content && (
             <p className="text-sm font-medium">{`${readTime(

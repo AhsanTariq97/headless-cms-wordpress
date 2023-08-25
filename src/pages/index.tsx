@@ -29,7 +29,7 @@ export default function Home({ posts }: { posts: Post[] }) {
       className={`overflow-x-hidden ${roboto.className} ${raleway.className} ${lexendGiga.className} font-roboto`}
     >
       <Navbar />
-      <main className="pb-16 mx-auto lg:max-w-screen-xl md:max-w-screen-md">
+      <main className="mx-auto pb-16 md:max-w-screen-md lg:max-w-screen-xl">
         <BlogHomepage posts={staticPosts} />
       </main>
       <Footer />

@@ -10,7 +10,7 @@ const Button: React.FC<ButtonProps> = ({ type, text, px }) => {
       type={type}
       className={`px-${
         px ? px : "12"
-      } py-1 text-[#7187A2] dark:text-white border-2 border-[#7187A2] dark:border-white font-normal text-lg tracking-wide rounded-full shadow-button hover:text-white dark:hover:text-gray-200 outline-none hover:bg-[#010661] dark:hover:bg-gray-600 hover:border-[#010661] dark:hover:border-gray-200`}
+      } shadow-button rounded-full border-2 border-[#7187A2] py-1 text-lg font-normal tracking-wide text-[#7187A2] outline-none hover:border-[#010661] hover:bg-[#010661] hover:text-white dark:border-white dark:text-white dark:hover:border-gray-200 dark:hover:bg-gray-600 dark:hover:text-gray-200`}
     >
       {text}
     </button>

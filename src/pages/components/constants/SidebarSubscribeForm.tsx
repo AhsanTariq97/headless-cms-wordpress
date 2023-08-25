@@ -22,12 +22,12 @@ const SidebarSubscribeForm = () => {
   };
 
   return (
-    <div className="flex flex-col items-start justify-between space-y-4 w-full rounded-lg p-4 border border-[#c7c7c7]">
+    <div className="flex w-full flex-col items-start justify-between space-y-4 rounded-lg border border-[#c7c7c7] p-4">
       <h3 className="text-base font-bold leading-tight">
         Want to stay on top of all tips and news from Atrialogics?
       </h3>
       <form
-        className="flex flex-col items-start justify-between w-full space-y-2 text-xs"
+        className="flex w-full flex-col items-start justify-between space-y-2 text-xs"
         // ref={form}
         onSubmit={handleSubmit((data) => {
           console.log(data);
@@ -41,7 +41,7 @@ const SidebarSubscribeForm = () => {
           placeholder="example@email.com"
           className={`${
             errors.email ? "border-red-600" : "border-[#7187A2]"
-          } w-full border p-2 rounded-xl outline-none shadow-lg`}
+          } w-full rounded-xl border p-2 shadow-lg outline-none`}
           {...register("email", {
             required: "Required",
             validate: validateEmail,
@@ -50,7 +50,7 @@ const SidebarSubscribeForm = () => {
         <p className="py-1 text-red-600">{errors.email?.message}</p>
         <button
           type="submit"
-          className="text-[#7187A2] dark:text-gray-400 border border-[#7187A2] dark:border-gray-400 px-4 py-2 rounded-full cursor-pointer hover:bg-[#010661] dark:hover:bg-dark hover:text-white dark:hover:text-gray-200 hover:border-[#010661] dark:hover:border-gray-200"
+          className="cursor-pointer rounded-full border border-[#7187A2] px-4 py-2 text-[#7187A2] hover:border-[#010661] hover:bg-[#010661] hover:text-white dark:border-gray-400 dark:text-gray-400 dark:hover:border-gray-200 dark:hover:bg-dark dark:hover:text-gray-200"
         >
           Submit
         </button>

@@ -34,16 +34,16 @@ const Footer: React.FC = () => {
 
   return (
     <footer className="w-full">
-      <div className="relative pt-16 pb-8 bg-[#243140] text-[#BDC0C2] w-full">
-        <div className="slanted-cut text-[#E5E7EB] absolute animate-bounce top-0 left-auto right-8 bg-[#7187A2] p-2 md:-top-4 md:left-1/2 md:-translate-x-1/2 md:right-auto md:px-6 md:py-3 md:bg-[#243140] md:animate-none">
+      <div className="relative w-full bg-[#243140] pb-8 pt-16 text-[#BDC0C2]">
+        <div className="slanted-cut absolute left-auto right-8 top-0 animate-bounce bg-[#7187A2] p-2 text-[#E5E7EB] md:-top-4 md:left-1/2 md:right-auto md:-translate-x-1/2 md:animate-none md:bg-[#243140] md:px-6 md:py-3">
           <button onClick={scrollToTop}>
             <FaArrowUp size={25} className="md:animate-bounce" />
           </button>
         </div>
-        <div className="flex flex-col md:flex-row justify-between items-center px-8 space-y-12 mx-auto pb-16 sm:pb-32 md:pt-12 md:border-t-2 border-[#E4E6E7] md:space-y-0 md:max-w-4xl lg:max-w-6xl">
+        <div className="mx-auto flex flex-col items-center justify-between space-y-12 border-[#E4E6E7] px-8 pb-16 sm:pb-32 md:max-w-4xl md:flex-row md:space-y-0 md:border-t-2 md:pt-12 lg:max-w-6xl">
           <div
             data-aos="fade-up"
-            className="flex flex-col items-center justify-between space-y-4 text-center lg:items-start w-max"
+            className="flex w-max flex-col items-center justify-between space-y-4 text-center lg:items-start"
           >
             <h3 className="w-full text-base font-semibold tracking-wide text-white">
               Navigate Links
@@ -82,7 +82,7 @@ const Footer: React.FC = () => {
             </h2>
             <div className="flex items-center justify-between space-x-4 md:space-x-2">
               <Link href="https://www.facebook.com/atrialogics" target="_blank">
-                <div className="rounded-full text-[#252728] bg-[#E4E6E7] p-2">
+                <div className="rounded-full bg-[#E4E6E7] p-2 text-[#252728]">
                   <FaFacebookF size={25} />
                 </div>
               </Link>
@@ -90,17 +90,17 @@ const Footer: React.FC = () => {
                 href="https://www.instagram.com/atrialogics"
                 target="_blank"
               >
-                <div className="rounded-full text-[#252728] bg-[#E4E6E7] p-2">
+                <div className="rounded-full bg-[#E4E6E7] p-2 text-[#252728]">
                   <AiFillInstagram size={25} />
                 </div>
               </Link>
               <Link href="https://atrialogics.io/#" target="_blank">
-                <div className="rounded-full text-[#252728] bg-[#E4E6E7] p-2">
+                <div className="rounded-full bg-[#E4E6E7] p-2 text-[#252728]">
                   <FaTwitter size={25} />
                 </div>
               </Link>
               <Link href="https://atrialogics.io/#" target="_blank">
-                <div className="rounded-full text-[#252728] bg-[#E4E6E7] p-2">
+                <div className="rounded-full bg-[#E4E6E7] p-2 text-[#252728]">
                   <FaLinkedinIn size={25} />
                 </div>
               </Link>
@@ -110,13 +110,13 @@ const Footer: React.FC = () => {
             data-aos="fade-up"
             className="flex flex-col items-center justify-between space-y-4 lg:items-start"
           >
-            <h3 className="font-bold tracking-wide text-white tex-2xl">
+            <h3 className="tex-2xl font-bold tracking-wide text-white">
               Contact Us
             </h3>
             <ContactDetails textColor="text-[#BDC0C2]" iconColor="#BDC0C2" />
           </div>
         </div>
-        <div className="flex justify-between items-center border-t-2 border-[#E4E6E7] w-full p-4 mx-auto md:max-w-4xl lg:max-w-6xl">
+        <div className="mx-auto flex w-full items-center justify-between border-t-2 border-[#E4E6E7] p-4 md:max-w-4xl lg:max-w-6xl">
           <h3 className="text-base font-medium tracking-wide">
             ©2023 Atrialogics
           </h3>
